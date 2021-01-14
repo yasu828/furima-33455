@@ -1,6 +1,5 @@
 # README
 
-* How to run the test suite
 ## usersテーブル
 
 | Colum      | Type       | Options     |
