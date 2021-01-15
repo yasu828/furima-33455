@@ -2,39 +2,38 @@
 
 ## usersテーブル
 
-| Colum      | Type       | Options     |
-| ---------- | ---------- | ----------- |
-| email      | string     | null: false |
-| password   | string     | null: false |
-| nickname   | string     | null: false |
-| fname      | string     | null: false |
-| lname      | string     | null: false |
-| fkata      | string     | null: false |
-| lkata      | string     | null: false |
-| birth      | integer    | null: false |
+| Colum             | Type       | Options     |
+| ----------------- | ---------- | ----------- |
+| email             | string     | unique: true|
+| encrypted_password| string     | null: false |
+| nickname          | string     | null: false |
+| fname             | string     | null: false |
+| lname             | string     | null: false |
+| fkata             | string     | null: false |
+| lkata             | string     | null: false |
+| birth             | date       | null: false |
 
 ### Association
-- has_many: comment
-- has_many: product
+- has_many: comments
+- has_many: products
 
 
 ## productテーブル
 
-| Colum      | Type       | Options     |
-| ---------- | ---------- | ----------- |
-| title      | string     | null: false |
-| price      | integer    | null: false |
-| user       | references |             |
-| category   | string     | null: false |
-| state      | text       | null: false |
-| shipping   | integer    | null: false |
-| prefecture | string     | null: false |
-| wait-day   | integer    | null: false |
-| brand      | references |             |
-| sold-out   | boolean    |             |
+| Colum      | Type       | Options           |
+| ---------- | ---------- | ----------------- |
+| title      | string     | null: false       |
+| price      | integer    | null: false       |
+| user       | references | foreign_key: true |
+| category   | string     | null: false       |
+| state      | text       | null: false       |
+| shipping   | integer    | null: false       |
+| prefecture | string     | null: false       |
+| wait-day   | integer    | null: false       |
+| brand      | references | foreign_key: true |
 
 ### Association
-- has_many: comment
+- has_many: comments
 - belong_to: user
 - belong_to: brand
 
