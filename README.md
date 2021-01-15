@@ -20,22 +20,22 @@
 
 ## productテーブル
 
-| Colum      | Type       | Options           |
-| ---------- | ---------- | ----------------- |
-| title      | string     | null: false       |
-| price      | integer    | null: false       |
-| user       | references | foreign_key: true |
-| category   | string     | null: false       |
-| state      | text       | null: false       |
-| shipping   | integer    | null: false       |
-| prefecture | string     | null: false       |
-| wait-day   | integer    | null: false       |
-| brand      | references | foreign_key: true |
+| Colum         | Type       | Options           |
+| ------------- | ---------- | ----------------- |
+| product       | string     | null: false       |
+| price         | integer    | null: false       |
+| user          | references | foreign_key: true |
+| category_id   | integer    | null: false       |
+| state_id      | integer    | null: false       |
+| shipping_id   | integer    | null: false       |
+| prefecture_id | integer    | null: false       |
+| wait-day_id   | integer    | null: false       |
+| buydate       | references | foreign_key: true |
 
 ### Association
 - has_many: comments
 - belong_to: user
-- belong_to: brand
+- has_one: buydate
 
 
 ## commentsテーブル
@@ -51,12 +51,31 @@
 - belong_to: product
 
 
-## brandテーブル
+<!-- 商品購入管理に関するテーブル -->
+## buydateテーブル
+
+| Colum      | Type       | Options           |
+| ---------- | ---------- | ----------------- |
+| nickname   | references | foreign_key: true |
+| product    | references | foreign_key: true |
+
+### Association
+- has_one: product
+- has_one: user
+
+
+<!-- 配送先住所に関するテーブル -->
+## addressテーブル
 
 | Colum      | Type       | Options     |
 | ---------- | ---------- | ----------- |
-| name       | string     | null: false |
-| product    | references |             |
+| postalcode | integer    | null: false |
+| addone     | string     | null: false |
+| addtwo     | string     | null: false |
+| addthree   | string     | null: false |
+| building   | string     | null: false |
+| tell       | integer    | null: false |
 
 ### Association
-- has_many: product
+- has_one: user
+- has_one: product
