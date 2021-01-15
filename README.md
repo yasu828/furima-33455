@@ -69,16 +69,15 @@
 <!-- 配送先住所に関するテーブル -->
 ## addressテーブル
 
-| Colum      | Type       | Options           |
-| ---------- | ---------- | ----------------- |
-| postalcode | string     | null: false       |
-| addone     | string     | null: false       |
-| addtwo     | string     | null: false       |
-| addthree   | string     | null: false       |
-| building   | string     |                   |
-| tell       | string     | null: false       |
-| buydate    | references | foreign_key: true |
+| Colum         | Type       | Options           |
+| ------------- | ---------- | ----------------- |
+| postalcode    | string     | null: false       |
+| prefecture_id | integer    | null: false       |
+| addtwo        | string     | null: false       |
+| addthree      | string     | null: false       |
+| building      | string     |                   |
+| tell          | string     | null: false       |
+| buydate       | references | foreign_key: true |
 
 ### Association
-- belongs_to: product
-- has_one: buydate
+- belongs_to: buydate
