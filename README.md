@@ -31,7 +31,7 @@
 | state_id      | integer    | null: false       |
 | shipping_id   | integer    | null: false       |
 | prefecture_id | integer    | null: false       |
-| wait-day_id   | integer    | null: false       |
+| waitday_id        | integer    | null: false       |
 
 ### Association
 - has_many: comments
