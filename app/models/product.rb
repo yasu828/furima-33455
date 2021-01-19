@@ -1,10 +1,15 @@
 class Product < ApplicationRecord
     belongs_to :user
+    has_one_attached :image
 
     with_options presence: true do
-        validates :product
+        validates :product, unless: :was_attached?
         validates :explain
         validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
+    end
+
+    def was_attached?
+        self.image.attached?
     end
 
     # ActiveHashのアソシエーションとバリデーション
