@@ -82,6 +82,18 @@ RSpec.describe Product, type: :model do
       expect(@product.errors.full_messages).to include("Price is not a number")
     end
    
+    it "販売価格は半角数字のみ保存可能であること" do
+      @product.price = 'aaaa'
+      @product.valid?
+      expect(@product.errors.full_messages).to include("Price is not a number")
+    end
+   
+    it "販売価格は半角数字のみ保存可能であること" do
+      @product.price = '1a11'
+      @product.valid?
+      expect(@product.errors.full_messages).to include("Price is not a number")
+    end
+   
 
 
   end
