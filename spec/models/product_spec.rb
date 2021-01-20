@@ -22,6 +22,12 @@ RSpec.describe Product, type: :model do
       expect(@product.errors.full_messages).to include("Explain can't be blank")
     end
 
+    it "商品画像を1枚つけることが必須であること" do
+      @product.image = nil
+      @product.valid?
+      expect(@product.errors.full_messages).to include("Image can't be blank")
+    end
+
     it "価格についての情報が必須であること" do
       @product.price = ''
       @product.valid?
@@ -59,19 +65,19 @@ RSpec.describe Product, type: :model do
     end
    
     it "価格の範囲が、￥9,999,999以下であること" do
-      @product.waitday_id = '100000000'
+      @product.price = '100000000'
       @product.valid?
       expect(@product.errors.full_messages).to include("Price must be less than or equal to 9999999")
     end
    
     it "価格の範囲が、¥300以上であること" do
-      @product.waitday_id = '100'
+      @product.price = '100'
       @product.valid?
       expect(@product.errors.full_messages).to include("Price must be greater than or equal to 300")
     end
    
     it "販売価格は半角数字のみ保存可能であること" do
-      @product.waitday_id = '１０００'
+      @product.price = '１０００'
       @product.valid?
       expect(@product.errors.full_messages).to include("Price is not a number")
     end
