@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :user do
+    # association :product
     transient do
       person { Gimei.name }
    end
