@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
+    before_action :edit_limit, only: :edit
 
     def index
         @products = Product.all.order(created_at: :desc)
@@ -39,5 +40,12 @@ class ProductsController < ApplicationController
     private
     def product_params
         params.require(:product).permit(:product, :explain, :price, :image, :category_id, :prefecture_id, :shipping_id, :state_id, :waitday_id).merge(user_id: current_user.id)
+    end
+
+    def edit_limit
+        @product = Product.find(params[:id])
+        unless current_user == @product.user
+            redirect_to root_path
+        end
     end
 end
