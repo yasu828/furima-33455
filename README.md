@@ -76,8 +76,8 @@
 | addtwo        | string     | null: false       |
 | addthree      | string     | null: false       |
 | building      | string     |                   |
-| tell          | string     | null: false       |
-| buydate       | references | foreign_key: true |
+| tel           | string     | null: false       |
+| buydata       | references | foreign_key: true |
 
 ### Association
 - belongs_to: buydate
