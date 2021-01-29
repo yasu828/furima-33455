@@ -2,13 +2,15 @@ class AddressesController < ApplicationController
   before_action :authenticate_user!
   before_action :porduct_id
   before_action :buy_limit
+  before_action :secondbuy
 
 
   def index
     @address_buydatum = AddressBuydatum.new 
   end
 
-  def create    
+  def create
+    
     @address_buydatum = AddressBuydatum.new(address_params)
     if @address_buydatum.valid?
       pay_item
@@ -45,4 +47,10 @@ end
 
 def porduct_id
   @product = Product.find(params[:product_id])
+end
+
+def secondbuy
+  if @product.buydata.present?
+    redirect_to root_path
+  end
 end
