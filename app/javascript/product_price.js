@@ -8,5 +8,4 @@ window.addEventListener('load', () => {
         const profit = document.getElementById("profit")
         profit.innerHTML = inputValue - inputValue / tax
     })
-
 });

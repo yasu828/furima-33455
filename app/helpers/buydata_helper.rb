@@ -1,0 +1,2 @@
+module BuydataHelper
+end

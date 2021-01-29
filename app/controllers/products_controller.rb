@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
 
     def index
         @products = Product.all.order(created_at: :desc)
+        # @buydata = Buydata.all
+        # @buydatas = Buydata.find_by(product_id: params[:product_id])
     end
 
     def new
@@ -32,6 +34,9 @@ class ProductsController < ApplicationController
     end
     
     def show
+        if @product.buydata.present?
+            redirect_to root_path
+        end
     end
 
     def destroy
