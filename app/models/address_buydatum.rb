@@ -10,6 +10,9 @@ class AddressBuydatum
         validates :addtwo
         validates :addthree
         validates :tel,          format: { with: /\A\d{10,11}\z/ }
+
+        validates :user_id
+        validates :product_id
     end
 
 

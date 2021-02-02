@@ -1,8 +1,8 @@
 class AddressesController < ApplicationController
   before_action :authenticate_user!
   before_action :porduct_id
-  before_action :buy_limit
   before_action :secondbuy
+  before_action :buy_limit
 
 
   def index

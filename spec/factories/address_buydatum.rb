@@ -8,6 +8,5 @@ FactoryBot.define do
     building             {"テスト"}
     tel                  {"1234567890"}
     prefecture_id        {2}
-
   end
 end
