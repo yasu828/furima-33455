@@ -39,9 +39,13 @@ class AddressesController < ApplicationController
   end
 end
 
+def rootback
+    redirect_to root_path
+end
+
 def buy_limit
   unless current_user != @product.user
-      redirect_to root_path
+      rootback
   end
 end
 
@@ -51,6 +55,8 @@ end
 
 def secondbuy
   if @product.buydata.present?
-    redirect_to root_path
+    rootback
   end
 end
+
+
