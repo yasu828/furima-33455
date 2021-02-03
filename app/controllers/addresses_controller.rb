@@ -44,7 +44,7 @@ def rootback
 end
 
 def buy_limit
-  unless current_user != @product.user
+  if current_user == @product.user
       rootback
   end
 end
