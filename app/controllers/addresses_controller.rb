@@ -58,5 +58,3 @@ def secondbuy
     rootback
   end
 end
-
-
