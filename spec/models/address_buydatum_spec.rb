@@ -90,8 +90,14 @@ RSpec.describe AddressBuydatum, type: :model do
     end
 
 
-    it "電話番号は6〜11文字であること(11文字までしか入力できない)" do
+    it "電話番号は10〜11文字であること(11文字までしか入力できない) 9文字以下" do
       @address_buydatum.tel = '12'
+      @address_buydatum.valid?
+      expect(@address_buydatum.errors.full_messages).to include("Tel is invalid")
+    end
+
+    it "電話番号は10〜11文字であること(11文字までしか入力できない) 12文字以上" do
+      @address_buydatum.tel = '123456789012345'
       @address_buydatum.valid?
       expect(@address_buydatum.errors.full_messages).to include("Tel is invalid")
     end
