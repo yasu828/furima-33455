@@ -39,7 +39,7 @@ class AddressesController < ApplicationController
   end
 end
 
-def rootback
+def rootback        # ここは修正依頼があったためメンターさんと相談しながら記述したものです。（レビュー後消します）
     redirect_to root_path
 end
 
@@ -53,7 +53,7 @@ def porduct_id
   @product = Product.find(params[:product_id])
 end
 
-def secondbuy      # ここは修正依頼があったためメンターさんと相談しながら記述したものです。（レビュー後消します）
+def secondbuy
   if @product.buydata.present?
     rootback
   end
