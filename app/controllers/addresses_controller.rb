@@ -53,7 +53,7 @@ def porduct_id
   @product = Product.find(params[:product_id])
 end
 
-def secondbuy      # ここは修正依頼があったため直したものです。（レビュー後消します）
+def secondbuy      # ここは修正依頼があったためメンターさんと相談しながら記述したものです。（レビュー後消します）
   if @product.buydata.present?
     rootback
   end
