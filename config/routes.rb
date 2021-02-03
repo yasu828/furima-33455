@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "products#index"
 
 
-  resources :users
-  resources :products
+  resources :products do
+    resources :addresses
+  end
+  resources :buydata
 end
