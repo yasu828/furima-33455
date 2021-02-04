@@ -27,7 +27,7 @@ const pay = () => {
     
                 document.getElementById("charge-form").submit();
             } else {
-                alert("カード情報が正しくありません。");
+                document.getElementById("charge-form").submit();
             }
         });
     });
